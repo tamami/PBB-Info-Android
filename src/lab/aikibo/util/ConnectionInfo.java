@@ -3,7 +3,7 @@ package lab.aikibo.util;
 public class ConnectionInfo {
 	
 	public static final String NAMESPACE = "http://service.aikibo.lab";
-	public static final String URL = "http://118.96.129.161/axis2/services/RealisasiSPPTService.RealisasiSPPTServiceHttpSoap11Endpoint/";
+	public static final String URL = "http://[isi ip sendiri ya]/axis2/services/RealisasiSPPTService.RealisasiSPPTServiceHttpSoap11Endpoint/";
 	public static final String SOAP_ACTION = "http://aikibo.lab/RealisasiSPPTService";
 	public static final String METHOD_NAME_REALISASI_SPPT_NOW = "getRealisasiSPPTByNow";
 	public static final String METHOD_NAME_REALISASI_SPPT_DATE = "getRealisasiSPPTByDate";
