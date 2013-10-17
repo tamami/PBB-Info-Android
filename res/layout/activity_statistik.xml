@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="Statistik" />
+    
+    <HorizontalScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal" >
+   	 	<TableLayout
+      		android:layout_width="wrap_content"
+        	android:layout_height="wrap_content" >
+        	<TableRow>
+        		<TextView
+        		    android:layout_width="120dp"
+            		android:layout_height="wrap_content"
+            		android:gravity="center"
+            		android:text="JENIS"
+            		android:layout_gravity="center" />
+        		<TextView
+        		    android:layout_width="100dp"
+            		android:layout_height="wrap_content"
+            		android:gravity="center"
+            		android:layout_gravity="center"
+            		android:text="JML BERKAS" />
+        		<TextView
+        		    android:layout_width="130dp"
+            		android:layout_height="wrap_content"
+            		android:gravity="center"
+            		android:layout_gravity="center"
+            		android:text="NILAI KETETAPAN" />
+        		<TextView
+        		    android:layout_width="120dp"
+            		android:layout_height="wrap_content"
+            		android:gravity="center"
+            		android:text="REALISASI BERKAS" />
+        		<TextView
+        		    android:layout_width="120dp"
+            		android:layout_height="wrap_content"
+            		android:gravity="center"
+            		android:layout_gravity="center"
+            		android:text="REALISASI NILAI" />
+        		<TextView
+        		    android:layout_width="120dp"
+            		android:layout_height="wrap_content"
+            		android:gravity="center"
+            		android:layout_gravity="center"
+            		android:text="PROSENTASE" />
+        	</TableRow>
+        	<View 
+        	    android:layout_height="2px"
+        	    android:background="#0000ff" />
+        	<TableRow
+        	    android:layout_marginTop="10dp"
+        	    android:layout_marginBottom="10dp">
+        	    <TextView
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="center"
+        	        android:text="SPPT" />
+        	    <TextView
+        	        android:id="@+id/tvCacahKetetapanSPPT"
+        	        android:layout_width="80dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiKetetapanSPPT"
+        	        android:layout_width="150dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvCacahRealisasiSPPT"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiRealisasiSPPT"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvProsentaseSPPT"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	</TableRow>
+        	<TableRow
+        	    android:layout_marginBottom="10dp">
+        	    <TextView
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="center"
+        	        android:text="SKP" />
+        	    <TextView
+        	        android:id="@+id/tvCacahKetetapanSKP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiKetetapanSKP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvCacahRealisasiSKP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiRealisasiSKP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvProsentaseSKP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	</TableRow>
+        	<TableRow
+        	    android:layout_marginBottom="10dp">
+        	    <TextView
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="center"
+        	        android:text="SKP KB" />
+        	    <TextView
+        	        android:id="@+id/tvCacahKetetapanSKPKB"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiKetetapanSKPKB"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvCacahRealisasiSKPKB"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiRealisasiSKPKB"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvProsentaseSKPKB"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	</TableRow>
+        	<TableRow
+        	    android:layout_marginBottom="10dp">
+        	    <TextView
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="center"
+        	        android:text="SKP SPOP" />
+        	    <TextView
+        	        android:id="@+id/tvCacahKetetapanSKPSPOP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiKetetapanSKPSPOP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvCacahRealisasiSKPSPOP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiRealisasiSKPSPOP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvProsentaseSKPSPOP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	</TableRow>
+        	<TableRow
+        	    android:layout_marginBottom="10dp">
+        	    <TextView
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="center"
+        	        android:text="STP" />
+        	    <TextView
+        	        android:id="@+id/tvCacahKetetapanSTP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiKetetapanSTP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvCacahRealisasiSTP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvNilaiRealisasiSTP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	    <TextView
+        	        android:id="@+id/tvProsentaseSTP"
+        	        android:layout_width="120dp"
+        	        android:layout_height="wrap_content"
+        	        android:gravity="right" />
+        	</TableRow>
+    	</TableLayout>
+    </HorizontalScrollView>
+    
+</LinearLayout>

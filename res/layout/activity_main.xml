@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+	<Button
+	    android:id="@+id/btn_get_realisasi_updated"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Realisasi per Hari ini" />
+	
+	<Button
+	    android:id="@+id/btn_get_realisasi_per_tanggal"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Realisasi per tanggal" />
+	
+	<Button
+	    android:id="@+id/btn_get_statistik"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Statistik"
+	    android:layout_marginTop="20dp" />
+
+</LinearLayout>
