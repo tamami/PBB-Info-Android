@@ -162,6 +162,9 @@ public class RealisasiUI extends Activity {
 					resultThnN = new RealisasiSPPTRequest().getRealisasiPeriodic(Formator.getTahun(tglAkhir), tglAkhir);
 					int thnN = Integer.parseInt(Formator.getTahun(tglAkhir));
 					resultThnN_1 = new RealisasiSPPTRequest().getRealisasiPeriodic("" + (thnN - 1), tglAkhir);
+					resultThnN_2 = new RealisasiSPPTRequest().getRealisasiPeriodic("" + (thnN - 2), tglAkhir);
+					resultThnN_3 = new RealisasiSPPTRequest().getRealisasiPeriodic("" + (thnN - 3), tglAkhir);
+					resultThnN_4 = new RealisasiSPPTRequest().getRealisasiPeriodic("" + (thnN - 4), tglAkhir);
 				} catch (ResourceException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
