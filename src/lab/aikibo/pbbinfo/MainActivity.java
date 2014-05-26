@@ -2,12 +2,6 @@ package lab.aikibo.pbbinfo;
 
 import java.io.IOException;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.os.AsyncTask;
@@ -29,7 +23,7 @@ public class MainActivity extends Activity {
 	
 	
 	private String result;
-	private SoapPrimitive response;
+	//private SoapPrimitive response;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +31,6 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		init();
-		
 	}
 	
 	private void init() {

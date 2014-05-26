@@ -34,13 +34,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-        <TextView 
-            android:id="@+id/tv2"
+
+        <TextView
+            android:id="@+id/tvThnN"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="   Nilai SPPT" />
+
         <TextView
-            android:id="@+id/tvNilaiSPPT"
+            android:id="@+id/tvNilaiThnN"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="right" />
@@ -49,13 +51,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
+
         <TextView
-            android:id="@+id/tv3"
+            android:id="@+id/tvThnN_1"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="   Nilai SKP" />
+
 		<TextView
-		    android:id="@+id/tvNilaiSKP"
+		    android:id="@+id/tvNilaiThnN_1"
 		    android:layout_width="fill_parent"
 		    android:layout_height="wrap_content"
 		    android:gravity="right" />        
@@ -64,13 +68,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:id="@+id/tv4"
+            android:id="@+id/tvThnN_2"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="   Nilai SKPKB" />
+
         <TextView
-            android:id="@+id/tvNilaiSKPKB"
+            android:id="@+id/tvNilaiThnN_2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="right" />
@@ -79,13 +85,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:id="@+id/tv5"
+            android:id="@+id/tvThnN_3"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="   Nilai SKPSPOP" />
+
         <TextView
-            android:id="@+id/tvNilaiSKPSPOP"
+            android:id="@+id/tvNilaiThnN_3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="right" />
@@ -94,13 +102,15 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <TextView
-            android:id="@+id/tv6"
+            android:id="@+id/tvThnN_4"
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:text="   Nilai STP" />
+
         <TextView
-            android:id="@+id/tvNilaiSTP"
+            android:id="@+id/tvNilaiThnN_4"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="right" />

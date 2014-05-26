@@ -3,11 +3,6 @@ package lab.aikibo.pbbinfo;
 import java.io.IOException;
 import java.util.Date;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
 import lab.aikibo.util.ConnectionInfo;
@@ -100,23 +95,42 @@ public class StatistikUI extends Activity {
 		tvNilaiRealisasiStp = (TextView) findViewById(R.id.tvNilaiRealisasiSTP);
 		tvProsentaseStp = (TextView) findViewById(R.id.tvProsentaseSTP);
 		
-		CacahKetetapanSpptTask cksTask = new CacahKetetapanSpptTask();
-		cksTask.execute("");
-		
-		NilaiKetetapanSpptTask nksTask = new NilaiKetetapanSpptTask();
-		nksTask.execute("");
-		
-		CacahRealisasiSpptTask crsTask = new CacahRealisasiSpptTask();
-		crsTask.execute("");
-		
-		NilaiRealisasiSpptTask nrsTask = new NilaiRealisasiSpptTask();
-		nrsTask.execute("");
-		
-		ProsentaseSpptTask psTask = new ProsentaseSpptTask();
-		psTask.execute("");
-		
+		doGetCacahKetetapanSppt();
+		doGetNilaiKetetapanSppt();
+		doGetCacahRealisasiSppt();				
+		doGetNilaiRealisasiSppt();		
+		doGetProsentaseSppt();		
+		doDefaultTask();
+	}
+	
+	private void doDefaultTask() {
 		DefaultTask defaultTask = new DefaultTask();
 		defaultTask.execute("");
+	}
+	
+	private void doGetCacahKetetapanSppt() {
+		CacahKetetapanSpptTask cksTask = new CacahKetetapanSpptTask();
+		cksTask.execute("");
+	}
+	
+	private void doGetNilaiKetetapanSppt() {
+		NilaiKetetapanSpptTask nksTask = new NilaiKetetapanSpptTask();
+		nksTask.execute("");
+	}
+	
+	private void doGetCacahRealisasiSppt() {
+		CacahRealisasiSpptTask crsTask = new CacahRealisasiSpptTask();
+		crsTask.execute("");
+	}
+	
+	private void doGetNilaiRealisasiSppt() {
+		NilaiRealisasiSpptTask nrsTask = new NilaiRealisasiSpptTask();
+		nrsTask.execute("");
+	}
+	
+	private void doGetProsentaseSppt() {
+		ProsentaseSpptTask psTask = new ProsentaseSpptTask();
+		psTask.execute("");
 	}
 	
 	private class DefaultTask extends AsyncTask<String, Void, String> {
@@ -184,18 +198,7 @@ public class StatistikUI extends Activity {
 	private class ProsentaseSpptTask extends AsyncTask<String, Void, String> {
 		@Override
 		protected String doInBackground(String... str) {
-			SoapObject request = new SoapObject(ConnectionInfo.NAMESPACE,
-					ConnectionInfo.METHOD_NAME_PROSENTASE_REALISASI_SPPT_NOW);
-			SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-			envelope.dotNet = false;
-			envelope.setOutputSoapObject(request);
-			HttpTransportSE androidHtse = new HttpTransportSE(ConnectionInfo.URL);
-			try {
-				androidHtse.call(ConnectionInfo.SOAP_ACTION, envelope);
-				SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-				responseProsentaseSppt = response.toString();
-			} catch(IOException ioe) {
-			} catch(XmlPullParserException xppe) {}
+			
 			return null;
 		}
 		
@@ -206,25 +209,18 @@ public class StatistikUI extends Activity {
 		
 		@Override
 		protected void onPostExecute(String str) {
-			tvProsentaseSppt.setText(responseProsentaseSppt + " %");
+			try {
+				tvProsentaseSppt.setText(responseProsentaseSppt + " %");
+			} catch(NullPointerException npe) {
+				doGetProsentaseSppt();
+			}
 		}
 	}
 	
 	private class NilaiRealisasiSpptTask extends AsyncTask<String, Void, String> {
 		@Override
 		protected String doInBackground(String... str) {
-			SoapObject request = new SoapObject(ConnectionInfo.NAMESPACE,
-					ConnectionInfo.METHOD_NAME_REALISASI_SPPT_NOW);
-			SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-			envelope.dotNet = false;
-			envelope.setOutputSoapObject(request);
-			HttpTransportSE androidHtse = new HttpTransportSE(ConnectionInfo.URL);
-			try {
-				androidHtse.call(ConnectionInfo.SOAP_ACTION, envelope);
-				SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-				responseNilaiRealisasiSppt = response.toString();
-			} catch(IOException ioe) {
-			} catch(XmlPullParserException xppe) {}
+			
 			return null;
 		}
 		
@@ -235,16 +231,18 @@ public class StatistikUI extends Activity {
 		
 		@Override
 		protected void onPostExecute(String str) {
-			tvNilaiRealisasiSppt.setText(responseNilaiRealisasiSppt);
+			try {
+				tvNilaiRealisasiSppt.setText(responseNilaiRealisasiSppt);
+			} catch(NullPointerException npe) {
+				doGetNilaiRealisasiSppt();
+			}
 		}
 	}
 	
 	private class CacahRealisasiSpptTask extends AsyncTask<String, Void, String> {
 		@Override
 		protected String doInBackground(String... str) {
-			SoapPrimitive response = new SoapPrimitive(ConnectionInfo.NAMESPACE, 
-					"cacahRealisasiSppt", "-");
-			responseCacahRealisasiSppt = response.toString();
+			
 			return null;
 		}
 		
@@ -255,26 +253,18 @@ public class StatistikUI extends Activity {
 		
 		@Override
 		protected void onPostExecute(String str) {
-			tvCacahRealisasiSppt.setText(responseCacahRealisasiSppt);
+			try {
+				tvCacahRealisasiSppt.setText(responseCacahRealisasiSppt);
+			} catch(NullPointerException npe) {
+				doGetCacahRealisasiSppt();
+			}
 		}
 	}
 	
 	private class NilaiKetetapanSpptTask extends AsyncTask<String, Void, String> {
 		@Override
 		protected String doInBackground(String... str) {
-			SoapObject request = new SoapObject(ConnectionInfo.NAMESPACE, 
-					ConnectionInfo.METHOD_NAME_NILAI_SPPT_NOW);
-			SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-			envelope.dotNet = false;
-			envelope.setOutputSoapObject(request);
-			HttpTransportSE androidHttpTransport = new HttpTransportSE(ConnectionInfo.URL);
 			
-			try {
-				androidHttpTransport.call(ConnectionInfo.SOAP_ACTION, envelope);
-				SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-				responseNilaiKetetapanSppt = response.toString();
-			} catch(IOException ioe) {	
-			} catch(XmlPullParserException xppe) {}
 			return null;
 		}
 		
@@ -285,7 +275,11 @@ public class StatistikUI extends Activity {
 		
 		@Override
 		protected void onPostExecute(String str) {
-			tvNilaiKetetapanSppt.setText(responseNilaiKetetapanSppt);
+			try {
+				tvNilaiKetetapanSppt.setText(responseNilaiKetetapanSppt);
+			} catch(NullPointerException npe) {
+				doGetNilaiKetetapanSppt();
+			}
 		}
 	}
 	
@@ -293,23 +287,6 @@ public class StatistikUI extends Activity {
 
 		@Override
 		protected String doInBackground(String... arg0) {
-			SoapObject request = new SoapObject(ConnectionInfo.NAMESPACE,
-					ConnectionInfo.METHOD_NAME_KETETAPAN_SPPT_NOW);
-			SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-			envelope.dotNet = false;
-			envelope.setOutputSoapObject(request);
-			HttpTransportSE androidHttpTransport = new HttpTransportSE(ConnectionInfo.URL);
-			
-			try {
-				androidHttpTransport.call(ConnectionInfo.SOAP_ACTION, envelope);
-				SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-				responseCacahKetetapanSppt = response.toString();
-			} catch(IOException ioe) {
-				ioe.printStackTrace();
-			} catch(XmlPullParserException xppe) {
-				xppe.printStackTrace();
-			}
-			
 			return null;
 		}
 		
@@ -320,8 +297,12 @@ public class StatistikUI extends Activity {
 		
 		@Override
 		protected void onPostExecute(String result) {
-			tvCacahKetetapanSppt.setText(responseCacahKetetapanSppt.toString());
-			//getDefaultValueForAllExceptSppt();
+			try {
+				tvCacahKetetapanSppt.setText(responseCacahKetetapanSppt.toString());
+				//	getDefaultValueForAllExceptSppt();
+			} catch(NullPointerException npe) {
+				doGetCacahKetetapanSppt();
+			}
 		}
 		
 	}
@@ -363,66 +344,19 @@ public class StatistikUI extends Activity {
 	}
 	
 	private void getValueForNilaiKetetapanSppt() {
-		SoapObject request = new SoapObject(ConnectionInfo.NAMESPACE,
-				ConnectionInfo.METHOD_NAME_NILAI_SPPT_NOW);
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		envelope.dotNet = false;
-		envelope.setOutputSoapObject(request);
-		HttpTransportSE androidHttpTransport = new HttpTransportSE(ConnectionInfo.URL);
 		
-		try {
-			androidHttpTransport.call(ConnectionInfo.SOAP_ACTION, envelope);
-			SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-			responseNilaiKetetapanSppt = response.toString();
-		} catch(IOException ioe) {
-			//Toast.makeText(this, "kesalahan IO", Toast.LENGTH_LONG);
-		} catch(XmlPullParserException xppe) {
-			//Toast.makeText(this,  "Kesalahan parsing xml", Toast.LENGTH_LONG);
-		}
 	}
 	
 	private void getValueForCacahRealisasiSppt() {
-		SoapPrimitive response = new SoapPrimitive(ConnectionInfo.METHOD_NAME_KETETAPAN_SPPT_NOW, 
-				"cacahRealisasiSppt", "-");
-		responseCacahRealisasiSppt = response.toString();
+		
 	}
 	
 	private void getValueForNilaiRealisasiSppt() {
-		SoapObject request = new SoapObject(ConnectionInfo.NAMESPACE,
-				ConnectionInfo.METHOD_NAME_REALISASI_SPPT_NOW);
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		envelope.dotNet = false;
-		envelope.setOutputSoapObject(request);
-		HttpTransportSE androidHttpTransport = new HttpTransportSE(ConnectionInfo.URL);
 		
-		try {
-			androidHttpTransport.call(ConnectionInfo.SOAP_ACTION, envelope);
-			SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-			responseNilaiRealisasiSppt = response.toString();
-		} catch(IOException ioe) {
-			//Toast.makeText(this, "kesalahan IO", Toast.LENGTH_LONG);
-		} catch(XmlPullParserException xppe) {
-			//Toast.makeText(this,  "Kesalahan parsing xml", Toast.LENGTH_LONG);
-		}
 	}
 	
 	private void getValueForProsentaseSppt() {
-		SoapObject request = new SoapObject(ConnectionInfo.NAMESPACE,
-				ConnectionInfo.METHOD_NAME_PROSENTASE_REALISASI_SPPT_NOW);
-		SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-		envelope.dotNet = false;
-		envelope.setOutputSoapObject(request);
-		HttpTransportSE androidHttpTransport = new HttpTransportSE(ConnectionInfo.URL);
 		
-		try {
-			androidHttpTransport.call(ConnectionInfo.SOAP_ACTION, envelope);
-			SoapPrimitive response = (SoapPrimitive) envelope.getResponse();
-			responseProsentaseSppt = response.toString();
-		} catch(IOException ioe) {
-			//Toast.makeText(this, "kesalahan IO", Toast.LENGTH_LONG);
-		} catch(XmlPullParserException xppe) {
-			//Toast.makeText(this,  "Kesalahan parsing xml", Toast.LENGTH_LONG);
-		}
 	}
 	
 	private void getDefaultValueForAllExceptSppt() {
