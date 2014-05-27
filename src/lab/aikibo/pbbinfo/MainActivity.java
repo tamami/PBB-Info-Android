@@ -20,6 +20,7 @@ public class MainActivity extends Activity {
 	private Button btnRealisasiUpdate;
 	private Button btnRealisasiPerTanggal;
 	private Button btnStatistik;
+	private Button btnGetInfoSppt;
 	
 	
 	private String result;
@@ -37,6 +38,7 @@ public class MainActivity extends Activity {
 		btnRealisasiPerTanggal = (Button) findViewById(R.id.btn_get_realisasi_per_tanggal);
 		btnRealisasiUpdate = (Button) findViewById(R.id.btn_get_realisasi_updated);
 		btnStatistik = (Button) findViewById(R.id.btn_get_statistik);
+		btnGetInfoSppt = (Button) findViewById(R.id.btn_get_info_sppt);
 		
 		btnRealisasiPerTanggal.setOnClickListener(new OnClickListener() {
 			@Override
@@ -54,6 +56,12 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View view) {
 				btnStatistikOnClick();
+			}
+		});
+		btnGetInfoSppt.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				btnGetInfoSpptOnClick();
 			}
 		});
 	}
@@ -81,6 +89,14 @@ public class MainActivity extends Activity {
 		String className = "lab.aikibo.pbbinfo.RealisasiUI";
 		intent.setClassName(packageName, className);
 		intent.putExtra("requestcode", RealisasiUI.RC_NOW);
+		startActivity(intent);
+	}
+	
+	private void btnGetInfoSpptOnClick() {
+		Intent intent = new Intent();
+		String packageName = "lab.aikibo.pbbinfo";
+		String className = "lab.aikibo.pbbinfo.ParameterSppt";
+		intent.setClassName(packageName, className);
 		startActivity(intent);
 	}
 
