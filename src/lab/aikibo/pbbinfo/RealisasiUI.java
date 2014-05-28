@@ -100,11 +100,11 @@ public class RealisasiUI extends Activity {
 		bulan = getIntent().getExtras().getInt("bulan");
 		tahun = getIntent().getExtras().getInt("tahun");
 		tvTitle.setText("Data Realisasi periode " + tanggal + "/" + bulan + "/" + tahun);
-		tvNilaiThnN.setText("  Tahun " + tahun);
-		tvNilaiThnN_1.setText("  Tahun " + (tahun-1));
-		tvNilaiThnN_2.setText("  Tahun " + (tahun-2));
-		tvNilaiThnN_3.setText("  Tahun " + (tahun-3));
-		tvNilaiThnN_4.setText("  Tahun " + (tahun-4));
+		tvThnN.setText("  Tahun " + tahun);
+		tvThnN_1.setText("  Tahun " + (tahun-1));
+		tvThnN_2.setText("  Tahun " + (tahun-2));
+		tvThnN_3.setText("  Tahun " + (tahun-3));
+		tvThnN_4.setText("  Tahun " + (tahun-4));
 		
 		Task task = new Task(Formator.getTanggal(tanggal, bulan, tahun));
 		task.execute("");
