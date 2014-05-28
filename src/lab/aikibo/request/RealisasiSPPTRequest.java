@@ -18,7 +18,7 @@ public class RealisasiSPPTRequest {
 	
 	public String getRealisasiToday() throws JSONException, ResourceException, IOException, ParseException {
 		String valueFromServer =
-				new ClientResource(ConnectionInfo.URL_KANTOR_PBBINFO + 
+				new ClientResource(ConnectionInfo.URL_GET_SPPT + 
 						"/realisasiSPPT?mode=today").get().getText();
 		JsonRepresentation represent = new JsonRepresentation(valueFromServer);
 		JSONObject jsonObject = represent.getJsonObject();
@@ -30,7 +30,7 @@ public class RealisasiSPPTRequest {
 	public String getRealisasiPeriodic(String thnPajak, String tglAkhir) throws Exception {
 		String tglAwal = Formator.getTglAwal(tglAkhir);
 		String valueFromServer = 
-				new ClientResource(ConnectionInfo.URL_KANTOR_PBBINFO +
+				new ClientResource(ConnectionInfo.URL_GET_SPPT +
 						"/realisasiSPPT?mode=periodic&tahun=" + thnPajak +
 						"&tglAwal=" + tglAwal + 
 						"&tglAkhir=" + tglAkhir).get().getText();
@@ -44,7 +44,7 @@ public class RealisasiSPPTRequest {
 	
 	public String getRealisasiTotalPerTanggal(String tgl) throws ResourceException, IOException, JSONException, ParseException {
 		String valueFromServer = 
-				new ClientResource(ConnectionInfo.URL_KANTOR_PBBINFO + 
+				new ClientResource(ConnectionInfo.URL_GET_SPPT + 
 						"/realisasiSPPT?mode=date" +
 						"&tanggal=" + tgl).get().getText();
 		JsonRepresentation represent = new JsonRepresentation(valueFromServer);
