@@ -73,5 +73,17 @@ public class Formator {
 			return tanggal.substring(6,10);
 		}
 	}
+	
+	// mengubah barisan nop tanpa tanda baca, jadi nop berformat SPPT
+	public static String getNopFormatted(String nop) throws Exception {
+		if(nop.length() != 18) {
+			throw new Exception("Panjang karakter tidak sesuai dengan panjang NOP di database");
+		}
+		
+		return nop.substring(0,2) + "." + nop.substring(2,4) + "." +
+				nop.substring(4,7) + "." + nop.substring(7,10) + "." + 
+				nop.substring(10,13) + "-" + nop.substring(13,17) + "." + 
+				nop.substring(17,18);
+	}
 
 }
