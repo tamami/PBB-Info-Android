@@ -33,6 +33,10 @@
         <activity
             android:name="lab.aikibo.pbbinfo.StatistikUI"
             android:screenOrientation="landscape" />
+        <activity
+            android:name="lab.aikibo.pbbinfo.ParameterSppt" />
+        <activity
+            android:name="lab.aikibo.pbbinfo.SpptInfoUI" />
     </application>
 
 </manifest>
