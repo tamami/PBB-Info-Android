@@ -1,11 +1,13 @@
 package lab.aikibo.pbbinfo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class ParameterSppt extends Activity {
 	
@@ -35,7 +37,13 @@ public class ParameterSppt extends Activity {
 	}
 	
 	public void btnProsesOnClick() {
-		
+		Intent intent = new Intent();
+		String packageName = "lab.aikibo.pbbinfo";
+		String className = "lab.aikibo.pbbinfo.SpptInfoUI";
+		intent.setClassName(packageName, className);
+		intent.putExtra("nop", edNop.getText());
+		intent.putExtra("thnPajak", edThnPajak.getText());
+		startActivity(intent);
 	}
 
 }
